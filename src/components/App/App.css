@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Inter', Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Roboto-slab', 'Roboto', 'Inter', Arial, sans-serif;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1440px;
+}

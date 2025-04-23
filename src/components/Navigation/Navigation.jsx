@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 function Navigation() {
-  const [isLoged, setIsLogued] = useState(true);
+  const [isLoged, setIsLogued] = useState(false);
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
 
   const location = useLocation();

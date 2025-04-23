@@ -1,5 +1,6 @@
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 
 function App() {
   return (
@@ -7,7 +8,9 @@ function App() {
       <Header>
         <Navigation />
       </Header>
-      <div className='page'></div>
+      <div className='page'>
+        <Footer />
+      </div>
     </>
   );
 }

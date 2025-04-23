@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { LoginContext } from '../../contexts/LoginContext';
 
 import logoWite from '../../assets/images/Header/logo_wite.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
@@ -13,9 +14,9 @@ function Header({ children }) {
   const location = useLocation();
 
   const { currentUser } = useContext(CurrentUserContext);
+  const { isLoggedIn } = useContext(LoginContext);
 
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
-  const [isloged, setIsloged] = useState(true);
 
   useEffect(() => {
     setIsSavedNewsPage(location.pathname === '/saved-news');
@@ -35,16 +36,16 @@ function Header({ children }) {
         <button
           className={`header__button 
           ${isSavedNewsPage ? 'header__button--light-theme' : ''} 
-          ${isloged ? '' : 'header__button--not-loged'}`}
+          ${isLoggedIn ? '' : 'header__button--not-loged'}`}
         >
           <p
             className={`header__button-text ${
               isSavedNewsPage ? 'header__button-text--light-theme' : ''
             }`}
           >
-            {isloged ? `${currentUser.name}` : 'Entrar'}
+            {isLoggedIn ? `${currentUser.name}` : 'Entrar'}
           </p>
-          {isloged && (
+          {isLoggedIn && (
             <img
               className='header__button-image'
               src={isSavedNewsPage ? loguotBlack : loguotWite}

@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App';
 
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
+import { LoginProvider } from './contexts/LoginContext';
 
 import './index.css';
 
@@ -12,7 +13,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <CurrentUserProvider>
-        <App />
+        <LoginProvider>
+          <App />
+        </LoginProvider>
       </CurrentUserProvider>
     </BrowserRouter>
   </StrictMode>

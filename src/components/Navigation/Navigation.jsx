@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { NavLink, useLocation } from 'react-router-dom';
 
-function Navigation() {
-  const [isLoged, setIsLogued] = useState(false);
-  const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
+import { LoginContext } from '../../contexts/LoginContext';
 
+function Navigation() {
   const location = useLocation();
+
+  const { isLoggedIn } = useContext(LoginContext);
+
+  const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
 
   const customClassName = ({ isActive }) =>
     'navigation__link' +
@@ -25,7 +28,7 @@ function Navigation() {
       <NavLink to='/' className={customClassName}>
         Início
       </NavLink>
-      {isLoged && (
+      {isLoggedIn && (
         <NavLink to='/saved-news' className={customClassName}>
           Artigos salvos
         </NavLink>

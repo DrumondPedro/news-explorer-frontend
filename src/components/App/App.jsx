@@ -1,9 +1,12 @@
 import Header from '../Header/Header';
+import Navigation from '../Navigation/Navigation';
 
 function App() {
   return (
     <>
-      <Header />
+      <Header>
+        <Navigation />
+      </Header>
       <div className='page'></div>
     </>
   );

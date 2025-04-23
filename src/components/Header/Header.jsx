@@ -13,13 +13,9 @@ function Header({ children }) {
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
   const [isloged, setIsloged] = useState(true);
 
-  // location.pathname === '/saved-news'
-
   useEffect(() => {
     setIsSavedNewsPage(location.pathname === '/saved-news');
   }, [location.pathname]);
-
-  console.log(isSavedNewsPage);
 
   return (
     <header

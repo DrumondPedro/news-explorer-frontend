@@ -1,0 +1,30 @@
+.navigation {
+  display: flex;
+  height: 81px;
+  margin: 0 32px 0 auto;
+}
+
+.navigation__link {
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 30px 30px 24px;
+  height: 81px;
+  border: none;
+  text-decoration: none;
+}
+
+.navigation__link--light-theme {
+  color: #1a1b22;
+}
+
+.navigation__link--active {
+  border-bottom: solid 3px #fff;
+  pointer-events: none;
+}
+
+.navigation__link--active--light-theme {
+  border-bottom: solid 3px #1a1b22;
+  pointer-events: none;
+}

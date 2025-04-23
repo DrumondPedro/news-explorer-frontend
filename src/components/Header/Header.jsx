@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
+
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import logoWite from '../../assets/images/Header/logo_wite.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
@@ -9,6 +11,8 @@ import loguotBlack from '../../assets/images/Header/logout_icon_black.svg';
 
 function Header({ children }) {
   const location = useLocation();
+
+  const { currentUser } = useContext(CurrentUserContext);
 
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
   const [isloged, setIsloged] = useState(true);
@@ -38,7 +42,7 @@ function Header({ children }) {
               isSavedNewsPage ? 'header__button-text--light-theme' : ''
             }`}
           >
-            {isloged ? 'UserName' : 'Entrar'}
+            {isloged ? `${currentUser.name}` : 'Entrar'}
           </p>
           {isloged && (
             <img

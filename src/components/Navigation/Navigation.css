@@ -1,6 +1,6 @@
 .navigation {
   display: flex;
-  height: 81px;
+  height: 82px;
   margin: 0 32px 0 auto;
 }
 
@@ -10,7 +10,6 @@
   line-height: 24px;
   font-weight: 500;
   padding: 30px 30px 24px;
-  height: 81px;
   border: none;
   text-decoration: none;
 }
@@ -27,4 +26,40 @@
 .navigation__link--active--light-theme {
   border-bottom: solid 3px #1a1b22;
   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    height: 68px;
+    margin: 0 20px 0 auto;
+  }
+
+  .navigation__link {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 23px 25px 23px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .navigation {
+    margin: 0 15px 0 auto;
+  }
+
+  .navigation__link {
+    padding: 23px 15px 23px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .navigation {
+    margin: 0;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navigation__link {
+    font-size: 18px;
+    padding: 20px 0;
+  }
 }

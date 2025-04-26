@@ -1,5 +1,6 @@
 .header {
   position: absolute;
+  z-index: 1;
   height: 80px;
   width: 100%;
   border-bottom: solid 1px rgba(255, 255, 255, 0.2);
@@ -12,6 +13,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 0 104px;
+  height: 100%;
   width: 100%;
   max-width: 1440px;
 }
@@ -22,18 +24,18 @@
 
 .header__logo {
   height: 24px;
-  margin: 30px 0 26px;
 }
 
 .header__button {
   display: flex;
-  height: 48px;
   align-items: center;
   justify-content: center;
+  height: 48px;
+  cursor: pointer;
   padding: 0 20px;
-  background-color: transparent;
   border: solid 1px #fff;
   border-radius: 100px;
+  background-color: transparent;
 }
 
 .header__button--light-theme {
@@ -60,4 +62,97 @@
   margin-left: 20px;
   width: 18px;
   height: 16px;
+}
+
+.header-menu-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  row-gap: 45px;
+  width: 100%;
+  padding: 66px 30px 30px;
+
+  background-color: #1a1b22;
+  border-radius: 0 0 20px 20px;
+}
+
+.header__menu-button {
+  height: 24px;
+  width: 24px;
+  border: none;
+  background-color: transparent;
+}
+
+.header__menu-button-image {
+  height: 24px;
+  width: 24px;
+}
+
+@media screen and (max-width: 980px) {
+  .header__content {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 66px;
+  }
+
+  .header__logo {
+    height: 20px;
+  }
+
+  .header__button {
+    height: 40px;
+    padding: 0 15px;
+  }
+
+  .header__button--not-loged {
+    max-width: 152px;
+  }
+
+  .header__button-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .header__button-image {
+    margin-left: 17px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .header__content {
+    padding: 0 25px;
+  }
+
+  .header__button {
+    padding: 0 12px;
+  }
+
+  .header__button-image {
+    margin-left: 12px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header__button {
+    height: 55px;
+    padding: 0 20px;
+  }
+
+  .header__button-text {
+    font-size: 18px;
+  }
+
+  .header__button-image {
+    margin-left: 17px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header-menu-popup {
+    padding: 56px 16px 26px;
+  }
 }

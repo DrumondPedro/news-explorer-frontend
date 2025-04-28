@@ -1,7 +1,7 @@
-.main {
+.search {
   height: 576px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(../../assets/images/Main/background_main.jpg);
+    url(../../../../assets/images/Search/background_search.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.main__title {
+.search__title {
   width: 100%;
   max-width: 700px;
   margin: 0;
@@ -21,7 +21,7 @@
   color: #ffffff;
 }
 
-.main__text {
+.search__text {
   width: 100%;
   max-width: 610px;
   margin: 0;
@@ -32,67 +32,67 @@
 }
 
 @media screen and (max-width: 1025px) {
-  .main__title {
+  .search__title {
     font-size: 48px;
     line-height: 52px;
     max-width: 595px;
   }
 
-  .main__text {
+  .search__text {
     max-width: 606px;
   }
 }
 
 @media screen and (max-width: 769px) {
-  .main {
+  .search {
     height: 400px;
   }
-  .main__title {
+  .search__title {
     max-width: 425px;
     font-size: 36px;
     line-height: 40px;
     padding: 104px 0 0;
   }
 
-  .main__text {
+  .search__text {
     max-width: 452px;
     padding: 16px 0 0;
   }
 }
 
 @media screen and (max-width: 580px) {
-  .main {
+  .search {
     height: 430px;
   }
 
-  .main__title {
+  .search__title {
     max-width: 390px;
     padding: 86px 0 0;
   }
 
-  .main__text {
+  .search__text {
     max-width: 390px;
     padding: 20px 0 0;
   }
 }
 
 @media screen and (max-width: 426px) {
-  .main {
+  .search {
     height: 536px;
   }
 
-  .main__content {
+  .search__content {
     max-width: 100%;
     width: 100%;
     padding: 0 16px 32px;
   }
 
-  .main__title {
+  .search__title {
     max-width: 285px;
     padding: 86px 0 0;
   }
 
-  .main__text {
+  .search__text {
     max-width: 288px;
     padding: 15px 0 0;
   }

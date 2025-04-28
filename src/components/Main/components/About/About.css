@@ -1,0 +1,144 @@
+.about {
+  display: flex;
+  column-gap: 56px;
+  height: 624px;
+  padding: 80px 104px;
+}
+
+.about__image {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+}
+
+.about__title {
+  margin-top: 51px;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #1a1b22;
+}
+
+.about__text {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 24px;
+  width: 100%;
+  max-width: 600px;
+  color: #1a1b22;
+}
+
+@media screen and (max-width: 1200px) {
+  .about {
+    height: 550px;
+    padding: 80px;
+  }
+  .about__image {
+    width: 390px;
+    height: 390px;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .about {
+    column-gap: 44px;
+    height: 489px;
+    padding: 60px 72px;
+  }
+
+  .about__image {
+    width: 348px;
+    height: 348px;
+    margin-top: 12px;
+  }
+
+  .about__title {
+    margin-top: 0;
+    font-size: 35px;
+    line-height: 43px;
+  }
+
+  .about__text {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 789px) {
+  .about {
+    column-gap: 32px;
+    height: 354px;
+    padding: 40px;
+  }
+
+  .about__image {
+    width: 232px;
+    height: 232px;
+    margin-top: 21px;
+  }
+
+  .about__title {
+    margin-top: 0;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .about__text {
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .about {
+    column-gap: 24px;
+    height: 370px;
+    padding: 35px;
+    align-items: center;
+  }
+
+  .about__image {
+    margin-top: 0;
+  }
+
+  .about__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .about {
+    column-gap: 0;
+    row-gap: 24px;
+    height: 752px;
+    padding: 48px 24px;
+    flex-direction: column;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+  }
+
+  .about__text {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .about {
+    padding: 32px 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+    margin-top: 0;
+  }
+
+  .about__text {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

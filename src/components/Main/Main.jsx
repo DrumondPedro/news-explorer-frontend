@@ -1,3 +1,5 @@
+import SearchForm from './components/SearchForm/SearchForm';
+
 function Main() {
   return (
     <main className='main'>
@@ -7,6 +9,7 @@ function Main() {
           Encontre as últimas notícias sobre qualquer tema e salve elas em sua
           conta pessoal
         </p>
+        <SearchForm />
       </div>
     </main>
   );

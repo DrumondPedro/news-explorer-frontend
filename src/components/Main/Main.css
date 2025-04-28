@@ -17,6 +17,7 @@
   padding: 160px 0 0;
   font-size: 60px;
   line-height: 64px;
+  font-weight: 400;
   color: #ffffff;
 }
 
@@ -28,4 +29,71 @@
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
+}
+
+@media screen and (max-width: 1025px) {
+  .main__title {
+    font-size: 48px;
+    line-height: 52px;
+    max-width: 595px;
+  }
+
+  .main__text {
+    max-width: 606px;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .main {
+    height: 400px;
+  }
+  .main__title {
+    max-width: 425px;
+    font-size: 36px;
+    line-height: 40px;
+    padding: 104px 0 0;
+  }
+
+  .main__text {
+    max-width: 452px;
+    padding: 16px 0 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .main {
+    height: 430px;
+  }
+
+  .main__title {
+    max-width: 390px;
+    padding: 86px 0 0;
+  }
+
+  .main__text {
+    max-width: 390px;
+    padding: 20px 0 0;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .main {
+    height: 536px;
+  }
+
+  .main__content {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px 32px;
+  }
+
+  .main__title {
+    max-width: 285px;
+    padding: 86px 0 0;
+  }
+
+  .main__text {
+    max-width: 288px;
+    padding: 15px 0 0;
+  }
 }

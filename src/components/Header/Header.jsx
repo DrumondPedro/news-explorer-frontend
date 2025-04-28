@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
@@ -94,6 +94,19 @@ function Header({ children }) {
 
     setIsMenuOpen(false);
     setIsSavedNewsPage(location.pathname === '/saved-news');
+
+    function handleEscClose(evt) {
+      if (evt.key === 'Escape') {
+        console.log('evt');
+        setIsMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('keydown', handleEscClose);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscClose);
+    };
   }, [location.pathname, width]);
 
   return (
@@ -102,7 +115,9 @@ function Header({ children }) {
         className={`header ${isSavedNewsPage ? 'header--light-theme' : ''}`}
       >
         <div className='header__content'>
-          <img className='header__logo' src={getLogoImage()} alt='' />
+          <Link className='header__logo--link' to='/'>
+            <img className='header__logo' src={getLogoImage()} alt='' />
+          </Link>
           {width > 580 && children}
           {handleHeaderButtonSelection()}
         </div>

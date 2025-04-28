@@ -11,3 +11,5 @@
 @import url('./components/Footer/Footer.css');
 
 @import url('./components/Main/Main.css');
+
+@import url('./components/Main/components/SearchForm/SearchForm.css');

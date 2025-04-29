@@ -2,6 +2,7 @@
   display: flex;
   column-gap: 56px;
   height: 624px;
+  max-height: fit-content;
   padding: 80px 104px;
 }
 
@@ -59,6 +60,13 @@
 
   .about__text {
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .about__image {
+    width: 290px;
+    height: 290px;
   }
 }
 

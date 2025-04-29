@@ -17,6 +17,9 @@
 }
 
 .news-card-list__cards-area {
+  display: flex;
+  gap: 16px;
+  list-style: none;
   margin-top: 64px;
 }
 .news-card-list__button {

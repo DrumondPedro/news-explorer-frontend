@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import Main from '../Main/Main';
+import SavedNews from '../SavedNews/SavedNews';
 
 import Footer from '../Footer/Footer';
 
@@ -14,19 +15,8 @@ function App() {
       </Header>
       <div className='page'>
         <Routes>
-          <Route path='/' element={<Main />}></Route>
-          <Route
-            path='/saved-news'
-            element={
-              <div
-                style={{
-                  width: '100%',
-                  backgroundColor: '#02370080',
-                  height: '500px',
-                }}
-              ></div>
-            }
-          ></Route>
+          <Route path='/' element={<Main />} />
+          <Route path='/saved-news' element={<SavedNews />} />
         </Routes>
       </div>
       <Footer />

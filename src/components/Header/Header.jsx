@@ -6,9 +6,9 @@ import useWindowDimension from 'use-window-dimensions';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
 
-import logoWite from '../../assets/images/Header/logo_wite.svg';
+import logoWhite from '../../assets/images/Header/logo_white.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
-import loguotWite from '../../assets/images/Header/logout_icon_wite.svg';
+import loguotWhite from '../../assets/images/Header/logout_icon_white.svg';
 import loguotBlack from '../../assets/images/Header/logout_icon_black.svg';
 import gridIcon from '../../assets/images/Header/menu_grid_icon.svg';
 import gridIconBlack from '../../assets/images/Header/menu_grid_icon_black.svg';
@@ -30,12 +30,12 @@ function Header({ children }) {
 
   const getLogoImage = () => {
     if (isMenuOpen) {
-      return logoWite;
+      return logoWhite;
     }
     if (isSavedNewsPage) {
       return logoBlack;
     }
-    return logoWite;
+    return logoWhite;
   };
 
   const getMenuButtonImage = () => {
@@ -79,7 +79,7 @@ function Header({ children }) {
         {isLoggedIn && (
           <img
             className='header__button-image'
-            src={isSavedNewsPage ? loguotBlack : loguotWite}
+            src={isSavedNewsPage ? loguotBlack : loguotWhite}
             alt=''
           />
         )}
@@ -134,7 +134,7 @@ function Header({ children }) {
               {isLoggedIn ? `${currentUser.name}` : 'Entrar'}
             </p>
             {isLoggedIn && (
-              <img className='header__button-image' src={loguotWite} alt='' />
+              <img className='header__button-image' src={loguotWhite} alt='' />
             )}
           </button>
         </div>

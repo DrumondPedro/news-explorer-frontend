@@ -7,7 +7,7 @@ function About() {
       <div className='about__content'>
         <h2 className='about__title'>Sobre o autor</h2>
         <p className='about__text'>
-          Oi! Eu sou o Pedro atualmente estou em transição de carreira. E para
+          Oi! Eu sou o Pedro e atualmente estou em transição de carreira. E para
           ingressar na área da tecnologia finalizei recentemente o bootcamp de
           desenvolvimento web da TripleTen, onde aprendi as seguintes
           tecnologias: JS, HTML, CSS, React, Node.js e Express. Aprendi também a

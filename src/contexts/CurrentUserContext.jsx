@@ -6,7 +6,7 @@ export function CurrentUserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState({
     name: 'Pedro',
     email: '...',
-    news: [],
+    news: ['1', '2', '3', '4', '5'],
     _id: '000',
   });
 

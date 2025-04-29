@@ -1,5 +1,11 @@
+import SavedNewsHeader from './SavedNewsHeader/SavedNewsHeader';
+
 function SavedNews() {
-  return <section className='saved-news'></section>;
+  return (
+    <section className='saved-news'>
+      <SavedNewsHeader />
+    </section>
+  );
 }
 
 export default SavedNews;

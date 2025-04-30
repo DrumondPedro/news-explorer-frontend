@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
 import { LoginContext } from '../../contexts/LoginContext';
+import { LocationContext } from '../../contexts/LocationContext';
 
 function Navigation() {
-  const location = useLocation();
   const { width } = useWindowDimension();
 
   const { isLoggedIn } = useContext(LoginContext);
-
-  const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
+  const { isSavedNewsPage } = useContext(LocationContext);
 
   const customClassName = ({ isActive }) => {
     if (width <= 580) {
@@ -26,10 +25,6 @@ function Navigation() {
       (isSavedNewsPage ? ' navigation__link--light-theme' : '')
     );
   };
-
-  useEffect(() => {
-    setIsSavedNewsPage(location.pathname === '/saved-news');
-  }, [location.pathname]);
 
   return (
     <nav className='navigation'>

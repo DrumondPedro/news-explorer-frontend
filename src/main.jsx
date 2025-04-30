@@ -7,19 +7,22 @@ import App from './components/App/App';
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { NewsProvider } from './contexts/NewsContext';
 import { LoginProvider } from './contexts/LoginContext';
+import { LocationProvider } from './contexts/LocationContext';
 
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <CurrentUserProvider>
-        <NewsProvider>
-          <LoginProvider>
+  // <StrictMode>
+  <BrowserRouter>
+    <CurrentUserProvider>
+      <NewsProvider>
+        <LoginProvider>
+          <LocationProvider>
             <App />
-          </LoginProvider>
-        </NewsProvider>
-      </CurrentUserProvider>
-    </BrowserRouter>
-  </StrictMode>
+          </LocationProvider>
+        </LoginProvider>
+      </NewsProvider>
+    </CurrentUserProvider>
+  </BrowserRouter>
+  // </StrictMode>
 );

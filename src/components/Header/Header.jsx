@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
+import { LocationContext } from '../../contexts/LocationContext';
 
 import logoWhite from '../../assets/images/Header/logo_white.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
@@ -15,14 +16,13 @@ import gridIconBlack from '../../assets/images/Header/menu_grid_icon_black.svg';
 import closeIcon from '../../assets/images/Header/close_icon.svg';
 
 function Header({ children }) {
-  const location = useLocation();
   const { width } = useWindowDimension();
 
   const { currentUser } = useContext(CurrentUserContext);
   const { isLoggedIn } = useContext(LoginContext);
+  const { isSavedNewsPage } = useContext(LocationContext);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
 
   const handleOpeningMenuMobile = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -92,9 +92,6 @@ function Header({ children }) {
       setIsMenuOpen(false);
     }
 
-    setIsMenuOpen(false);
-    setIsSavedNewsPage(location.pathname === '/saved-news');
-
     function handleEscClose(evt) {
       if (evt.key === 'Escape') {
         console.log('evt');
@@ -107,7 +104,7 @@ function Header({ children }) {
     return () => {
       document.removeEventListener('keydown', handleEscClose);
     };
-  }, [location.pathname, width]);
+  }, []);
 
   return (
     <>

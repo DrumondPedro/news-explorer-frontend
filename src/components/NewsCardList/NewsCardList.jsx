@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import NewsCard from '../../../NewsCard/NewsCard';
+import NewsCard from '../NewsCard/NewsCard';
 
-import { NewsContext } from '../../../../contexts/NewsContext';
+import { NewsContext } from '../../contexts/NewsContext';
 
 function NewsCardList() {
   const { newsData } = useContext(NewsContext);

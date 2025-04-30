@@ -1,6 +1,6 @@
-import notFoundIcon from '../../../../assets/images/NewsNotFound/not_found.svg';
+import notFoundIcon from '../../assets/images/NewsNotFound/not_found.svg';
 
-function NewsNotFound() {
+function NewsNotFound({ currentUser }) {
   return (
     <section className='news-not-found'>
       <img
@@ -10,7 +10,9 @@ function NewsNotFound() {
       />
       <h2 className='news-not-found__title'>Nada encontrado</h2>
       <p className='news-not-found__text'>
-        Desculpe, mas nada corresponde aos seus termos de pesquisa.
+        {currentUser
+          ? 'Desculpe, mas você ainda não tem artigos salvos.'
+          : 'Desculpe, mas nada corresponde aos seus termos de pesquisa.'}
       </p>
     </section>
   );

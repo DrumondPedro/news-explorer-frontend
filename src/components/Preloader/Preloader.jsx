@@ -1,4 +1,4 @@
-import ellipse from '../../../../assets/images/Preloader/ellipse.svg';
+import ellipse from '../../assets/images/Preloader/ellipse.svg';
 
 function Preloader() {
   return (

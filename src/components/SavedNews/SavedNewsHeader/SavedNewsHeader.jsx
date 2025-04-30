@@ -1,9 +1,4 @@
-import { useContext } from 'react';
-import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
-
-function SavedNewsHeader() {
-  const { currentUser } = useContext(CurrentUserContext);
-
+function SavedNewsHeader({ currentUser }) {
   return (
     <section className='saved-news-header'>
       <p className='saved-news-header__caption'>Artigos salvos</p>

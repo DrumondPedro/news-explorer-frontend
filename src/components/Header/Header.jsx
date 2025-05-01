@@ -9,6 +9,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
 import { LocationContext } from '../../contexts/LocationContext';
 import { LigthThemeContext } from '../../contexts/LigthThemeContext';
+import { PopupContext } from '../../contexts/PopupContext';
 
 import logoWhite from '../../assets/images/Header/logo_white.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
@@ -18,13 +19,14 @@ import gridIcon from '../../assets/images/Header/menu_grid_icon.svg';
 import gridIconBlack from '../../assets/images/Header/menu_grid_icon_black.svg';
 import closeIcon from '../../assets/images/Header/close_icon.svg';
 
-function Header({ children, handleOpenPopup }) {
+function Header({ children }) {
   const { width } = useWindowDimension();
 
   const { currentUser } = useContext(CurrentUserContext);
   const { isLoggedIn } = useContext(LoginContext);
   const { isSavedNewsPage } = useContext(LocationContext);
   const { addLigthTheme, removeLigthTheme } = useContext(LigthThemeContext);
+  const { handleOpenPopup } = useContext(PopupContext);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

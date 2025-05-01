@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+
+import { PopupContext } from '../../../../contexts/PopupContext';
+
 import closeIcon from '../../../../assets/images/PopupWithForm/popup_close_Icon.svg';
 
-function PopupWithForm({ children, title, handleClosePopup }) {
+function PopupWithForm({ children, title }) {
+  const { handleClosePopup } = useContext(PopupContext);
+
   return (
     <div className={`popup-with-form`}>
       <div className={`popup-with-form__content`}>

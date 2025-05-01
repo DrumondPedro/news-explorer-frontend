@@ -9,6 +9,7 @@ import { NewsProvider } from './contexts/NewsContext';
 import { LoginProvider } from './contexts/LoginContext';
 import { LocationProvider } from './contexts/LocationContext';
 import { LigthThemeProvider } from './contexts/LigthThemeContext';
+import { PopupProvider } from './contexts/PopupContext';
 
 import './index.css';
 
@@ -20,7 +21,9 @@ createRoot(document.getElementById('root')).render(
         <LoginProvider>
           <LocationProvider>
             <LigthThemeProvider>
-              <App />
+              <PopupProvider>
+                <App />
+              </PopupProvider>
             </LigthThemeProvider>
           </LocationProvider>
         </LoginProvider>

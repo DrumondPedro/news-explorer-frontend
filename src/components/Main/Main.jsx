@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
 import Search from './components/Search/Search';
 import Preloader from '../Preloader/Preloader';
@@ -9,9 +9,13 @@ import PopupWithForm from './components/PopupWithForm/PopupWithForm';
 import Form from './components/PopupWithForm/components/Form/Form';
 import LoginForm from './components/PopupWithForm/components/Form/components/LoginForm/LoginForm';
 
+import { PopupContext } from '../../contexts/PopupContext';
+
 const newsData = 'newsData';
 
-function Main({ popup, handleClosePopup }) {
+function Main() {
+  const { popup } = useContext(PopupContext);
+
   return (
     <main className='content'>
       <Search />
@@ -19,12 +23,7 @@ function Main({ popup, handleClosePopup }) {
       {newsData ? <NewsCardList newsData={newsData} /> : <NewsNotFound />}
       <About />
       {popup && (
-        <PopupWithForm
-          title={`${popup.title}`}
-          handleClosePopup={handleClosePopup}
-        >
-          {popup.children}
-        </PopupWithForm>
+        <PopupWithForm title={`${popup.title}`}>{popup.children}</PopupWithForm>
       )}
     </main>
   );

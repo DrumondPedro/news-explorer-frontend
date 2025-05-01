@@ -9,27 +9,14 @@ import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
 
 function App() {
-  const [popup, setPopup] = useState(null);
-
-  function handleOpenPopup(popup) {
-    setPopup(popup);
-  }
-
-  function handleClosePopup(popup) {
-    setPopup(null);
-  }
-
   return (
     <>
-      <Header handleOpenPopup={handleOpenPopup}>
+      <Header>
         <Navigation />
       </Header>
       <div className='page'>
         <Routes>
-          <Route
-            path='/'
-            element={<Main popup={popup} handleClosePopup={handleClosePopup} />}
-          />
+          <Route path='/' element={<Main />} />
           <Route path='/saved-news' element={<SavedNews />} />
         </Routes>
       </div>

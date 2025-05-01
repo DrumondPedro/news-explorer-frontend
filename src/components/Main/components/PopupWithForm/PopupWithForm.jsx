@@ -1,10 +1,13 @@
 import closeIcon from '../../../../assets/images/PopupWithForm/popup_close_Icon.svg';
 
-function PopupWithForm({ children, title }) {
+function PopupWithForm({ children, title, handleClosePopup }) {
   return (
     <div className={`popup-with-form`}>
       <div className={`popup-with-form__content`}>
-        <button className={`popup-with-form__close-button`}>
+        <button
+          className={`popup-with-form__close-button`}
+          onClick={handleClosePopup}
+        >
           <img
             src={closeIcon}
             alt='Ícone de um x'

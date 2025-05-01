@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
+import Form from '../Main/components/PopupWithForm/components/Form/Form';
+
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
 import { LocationContext } from '../../contexts/LocationContext';
@@ -15,7 +17,7 @@ import gridIcon from '../../assets/images/Header/menu_grid_icon.svg';
 import gridIconBlack from '../../assets/images/Header/menu_grid_icon_black.svg';
 import closeIcon from '../../assets/images/Header/close_icon.svg';
 
-function Header({ children }) {
+function Header({ children, handleOpenPopup }) {
   const { width } = useWindowDimension();
 
   const { currentUser } = useContext(CurrentUserContext);
@@ -48,6 +50,19 @@ function Header({ children }) {
     return gridIcon;
   };
 
+  function openTestPopup() {
+    handleOpenPopup(PopupTest);
+  }
+
+  const PopupTest = {
+    title: 'Entrar',
+    children: (
+      <Form buttonText={'Entrar'} linkText={'Inscreva-se'}>
+        {/* <LoginForm></LoginForm> */}
+      </Form>
+    ),
+  };
+
   const handleHeaderButtonSelection = () => {
     if (width <= 580) {
       return (
@@ -68,6 +83,7 @@ function Header({ children }) {
         className={`header__button 
     ${isSavedNewsPage ? 'header__button--light-theme' : ''} 
     ${isLoggedIn ? '' : 'header__button--not-loged'}`}
+        onClick={openTestPopup}
       >
         <p
           className={`header__button-text ${

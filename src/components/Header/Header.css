@@ -22,6 +22,10 @@
   height: 24px;
 }
 
+.header__logo--link {
+  height: 24px;
+}
+
 .header__button {
   display: flex;
   align-items: center;
@@ -88,6 +92,10 @@
   }
 
   .header__logo {
+    height: 20px;
+  }
+
+  .header__logo--link {
     height: 20px;
   }
 

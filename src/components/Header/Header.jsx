@@ -40,7 +40,7 @@ function Header({ children, handleOpenPopup }) {
     removeLigthTheme();
   }
 
-  const getMenuButtonImage = () => {
+  function getMenuButtonImage() {
     if (isMenuOpen) {
       return closeIcon;
     }
@@ -48,7 +48,7 @@ function Header({ children, handleOpenPopup }) {
       return gridIconBlack;
     }
     return gridIcon;
-  };
+  }
 
   function openTestPopup() {
     handleOpenPopup(PopupTest);
@@ -98,6 +98,13 @@ function Header({ children, handleOpenPopup }) {
     );
   };
 
+  function handleEscClose(evt) {
+    if (evt.key === 'Escape') {
+      console.log('evt');
+      setIsMenuOpen(false);
+    }
+  }
+
   useEffect(() => {
     setIsMenuOpen(false);
 
@@ -107,15 +114,7 @@ function Header({ children, handleOpenPopup }) {
       removeLigthTheme();
     }
 
-    function handleEscClose(evt) {
-      if (evt.key === 'Escape') {
-        console.log('evt');
-        setIsMenuOpen(false);
-      }
-    }
-
     document.addEventListener('keydown', handleEscClose);
-
     return () => {
       document.removeEventListener('keydown', handleEscClose);
     };

@@ -8,6 +8,7 @@ import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { NewsProvider } from './contexts/NewsContext';
 import { LoginProvider } from './contexts/LoginContext';
 import { LocationProvider } from './contexts/LocationContext';
+import { LigthThemeProvider } from './contexts/LigthThemeContext';
 
 import './index.css';
 
@@ -18,7 +19,9 @@ createRoot(document.getElementById('root')).render(
       <NewsProvider>
         <LoginProvider>
           <LocationProvider>
-            <App />
+            <LigthThemeProvider>
+              <App />
+            </LigthThemeProvider>
           </LocationProvider>
         </LoginProvider>
       </NewsProvider>

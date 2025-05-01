@@ -8,6 +8,7 @@ import Form from '../Main/components/PopupWithForm/components/Form/Form';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
 import { LocationContext } from '../../contexts/LocationContext';
+import { LigthThemeContext } from '../../contexts/LigthThemeContext';
 
 import logoWhite from '../../assets/images/Header/logo_white.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
@@ -23,22 +24,21 @@ function Header({ children, handleOpenPopup }) {
   const { currentUser } = useContext(CurrentUserContext);
   const { isLoggedIn } = useContext(LoginContext);
   const { isSavedNewsPage } = useContext(LocationContext);
+  const { addLigthTheme, removeLigthTheme } = useContext(LigthThemeContext);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleOpeningMenuMobile = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const getLogoImage = () => {
+  function handleOpeningMenuMobile() {
     if (isMenuOpen) {
-      return logoWhite;
+      setIsMenuOpen(false);
+      if (isSavedNewsPage) {
+        addLigthTheme();
+      }
+      return;
     }
-    if (isSavedNewsPage) {
-      return logoBlack;
-    }
-    return logoWhite;
-  };
+    setIsMenuOpen(true);
+    removeLigthTheme();
+  }
 
   const getMenuButtonImage = () => {
     if (isMenuOpen) {
@@ -81,15 +81,10 @@ function Header({ children, handleOpenPopup }) {
     return (
       <button
         className={`header__button 
-    ${isSavedNewsPage ? 'header__button--light-theme' : ''} 
-    ${isLoggedIn ? '' : 'header__button--not-loged'}`}
+          ${isLoggedIn ? '' : 'header__button--not-loged'}`}
         onClick={openTestPopup}
       >
-        <p
-          className={`header__button-text ${
-            isSavedNewsPage ? 'header__button-text--light-theme' : ''
-          }`}
-        >
+        <p className={`header__button-text`}>
           {isLoggedIn ? `${currentUser.name}` : 'Entrar'}
         </p>
         {isLoggedIn && (
@@ -104,8 +99,12 @@ function Header({ children, handleOpenPopup }) {
   };
 
   useEffect(() => {
-    if (width > 580) {
-      setIsMenuOpen(false);
+    setIsMenuOpen(false);
+
+    if (isSavedNewsPage) {
+      addLigthTheme();
+    } else {
+      removeLigthTheme();
     }
 
     function handleEscClose(evt) {
@@ -120,16 +119,18 @@ function Header({ children, handleOpenPopup }) {
     return () => {
       document.removeEventListener('keydown', handleEscClose);
     };
-  }, []);
+  }, [isSavedNewsPage]);
 
   return (
     <>
-      <header
-        className={`header ${isSavedNewsPage ? 'header--light-theme' : ''}`}
-      >
+      <header className='header'>
         <div className='header__content'>
           <Link className='header__logo--link' to='/'>
-            <img className='header__logo' src={getLogoImage()} alt='' />
+            <img
+              className='header__logo'
+              src={isMenuOpen || !isSavedNewsPage ? logoWhite : logoBlack}
+              alt=''
+            />
           </Link>
           {width > 580 && children}
           {handleHeaderButtonSelection()}

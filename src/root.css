@@ -1,0 +1,17 @@
+:root {
+  --header-border-color: rgba(255, 255, 255, 0.2);
+  --header-bt-border-color: #fff;
+  --header-bt-tx-color: #fff;
+
+  --nav-link-color: #fff;
+  --nav-link-active-border-color: #fff;
+}
+
+.Light-theme {
+  --header-border-color: rgba(209, 210, 214, 1);
+  --header-bt-border-color: #1a1b22;
+  --header-bt-tx-color: #1a1b22;
+
+  --nav-link-color: #1a1b22;
+  --nav-link-active-border-color: #1a1b22;
+}

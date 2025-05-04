@@ -3,9 +3,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
-// import Form from '../Main/components/PopupWithForm/components/Form/Form';
-import LoginForm from '../Main/components/PopupWithForm/components/Form/components/LoginForm/LoginForm';
-
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
 import { LocationContext } from '../../contexts/LocationContext';
@@ -27,7 +24,7 @@ function Header({ children }) {
   const { isLoggedIn } = useContext(LoginContext);
   const { isSavedNewsPage } = useContext(LocationContext);
   const { addLigthTheme, removeLigthTheme } = useContext(LigthThemeContext);
-  const { handleOpenPopup } = useContext(PopupContext);
+  const { handleOpenPopup, loginPopup } = useContext(PopupContext);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -56,14 +53,6 @@ function Header({ children }) {
   function openLoginPopup() {
     handleOpenPopup(loginPopup);
   }
-
-  const loginPopup = {
-    title: 'Entrar',
-    children: (
-      // <Form buttonText={'Entrar'} linkText={'Inscreva-se'}></Form>
-      <LoginForm></LoginForm>
-    ),
-  };
 
   const handleHeaderButtonSelection = () => {
     if (width <= 580) {

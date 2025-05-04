@@ -1,11 +1,9 @@
 import { useContext, useRef, useState } from 'react';
 
-import SignupForm from '../SignupForm/SignupForm';
-
 import { PopupContext } from '../../../../../../../../contexts/PopupContext';
 
 function LoginForm() {
-  const { handleOpenPopup } = useContext(PopupContext);
+  const { handleOpenPopup, registerPopup } = useContext(PopupContext);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -60,14 +58,6 @@ function LoginForm() {
   function openRegisterPopup() {
     handleOpenPopup(registerPopup);
   }
-
-  const registerPopup = {
-    title: 'Inscrever-se',
-    children: (
-      // <Form buttonText={'Entrar'} linkText={'Inscreva-se'}></Form>
-      <SignupForm></SignupForm>
-    ),
-  };
 
   return (
     <form className={`form`} onSubmit={handleSubimit} noValidate>

@@ -44,7 +44,7 @@ function NewsCard({ news }) {
         <img
           className={`news-card__save-button-image`}
           src={saveImage}
-          alt=''
+          alt='Imagem de uma badeira minimalista'
         />
       </button>
       <img className='news-card__image' src={currentNews.image} alt='' />

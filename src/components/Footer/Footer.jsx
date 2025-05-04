@@ -33,7 +33,11 @@ function Footer() {
               to='https://github.com/DrumondPedro'
               target='_blank'
             >
-              <img className='footer__link-image' src={gitHubLogo} alt='' />
+              <img
+                className='footer__link-image'
+                src={gitHubLogo}
+                alt='Logo do GitHub'
+              />
             </Link>
           </li>
           <li className='footer__list-item'>
@@ -42,7 +46,11 @@ function Footer() {
               to='https://www.facebook.com/tripleten.brasil/?locale=pt_BR'
               target='_blank'
             >
-              <img className='footer__link-image' src={facebookLogo} alt='' />
+              <img
+                className='footer__link-image'
+                src={facebookLogo}
+                alt='Logo do Facebook'
+              />
             </Link>
           </li>
         </ul>

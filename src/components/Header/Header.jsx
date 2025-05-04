@@ -82,7 +82,7 @@ function Header({ children }) {
           <img
             className='header__button-image'
             src={isSavedNewsPage ? loguotBlack : loguotWhite}
-            alt=''
+            alt='Logo escrito "News Explorer"'
           />
         )}
       </button>
@@ -119,7 +119,7 @@ function Header({ children }) {
             <img
               className='header__logo'
               src={isMenuOpen || !isSavedNewsPage ? logoWhite : logoBlack}
-              alt=''
+              alt='Logo escrito "News Explorer"'
             />
           </Link>
           {width > 580 && children}
@@ -138,7 +138,11 @@ function Header({ children }) {
               {isLoggedIn ? `${currentUser.name}` : 'Entrar'}
             </p>
             {isLoggedIn && (
-              <img className='header__button-image' src={loguotWhite} alt='' />
+              <img
+                className='header__button-image'
+                src={loguotWhite}
+                alt='Imagem de uma seta apontando para direita'
+              />
             )}
           </button>
         </div>

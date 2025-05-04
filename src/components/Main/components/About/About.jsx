@@ -3,7 +3,11 @@ import aboutImage from '../../../../assets/images/About/about_image.jpg';
 function About() {
   return (
     <section className='about'>
-      <img className='about__image' src={aboutImage} alt='' />
+      <img
+        className='about__image'
+        src={aboutImage}
+        alt='Foto em preto e branco de um homem jovem usanndo oculos escuros e usanod uma farda de gala do Exército Brasileiro'
+      />
       <div className='about__content'>
         <h2 className='about__title'>Sobre o autor</h2>
         <p className='about__text'>

@@ -1,5 +1,6 @@
 .popup-with-form {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   display: flex;
@@ -14,7 +15,7 @@
   position: relative;
   width: 100%;
   max-width: 430px;
-  max-height: 457px;
+  max-height: 460px;
   padding: 34px 36px 28px;
   border-radius: 16px;
   box-shadow: 0px 0px 25px 0px #00000026;
@@ -49,6 +50,45 @@
   font-family: Roboto;
   font-weight: 900;
   font-size: 24px;
-  line-height: 100%;
+  line-height: 32px;
   color: #1a1b22;
+}
+
+@media screen and (max-width: 580px) {
+  .popup-with-form {
+    align-items: flex-end;
+  }
+
+  .popup-with-form__content {
+    max-width: 100%;
+    max-height: 560px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .popup-with-form__close-button {
+    top: -57px;
+    right: 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .popup-with-form__content {
+    padding: 16px;
+  }
+
+  .popup-with-form__close-button {
+    height: 24px;
+    width: 24px;
+    top: -39px;
+    right: 16px;
+  }
+
+  .popup-with-form__close-image {
+    width: 14px;
+    height: 14px;
+  }
+
+  .popup-with-form__title {
+    line-height: 28px;
+  }
 }

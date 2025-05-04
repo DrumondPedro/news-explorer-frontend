@@ -102,3 +102,9 @@
   cursor: pointer;
   color: #347eff;
 }
+
+@media screen and (max-width: 425px) {
+  .form {
+    margin: 18px 0 0;
+  }
+}

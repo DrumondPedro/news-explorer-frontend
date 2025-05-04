@@ -1,29 +1,36 @@
 import { useContext, useRef, useState } from 'react';
 
-import SignupForm from '../SignupForm/SignupForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 import { PopupContext } from '../../../../../../../../contexts/PopupContext';
 
-function LoginForm() {
+function SignupForm() {
   const { handleOpenPopup } = useContext(PopupContext);
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  const userNameRef = useRef();
 
-  const [signinData, setSigninData] = useState({ email: '', password: '' });
+  const [registerData, setRegisterData] = useState({
+    email: '',
+    password: '',
+    userName: '',
+  });
 
   const [isValid, setIsValid] = useState({
     validEmail: ' ',
     validPassword: ' ',
+    validUserName: ' ',
   });
   const [errorMessage, setErrorMessage] = useState({
     emailMsg: '',
     passwordMsg: '',
+    userNameMsg: '',
   });
   const [isActive, setIsActive] = useState(false);
 
   const handleEmailChange = (evt) => {
-    setSigninData({ ...signinData, email: evt.target.value });
+    setRegisterData({ ...registerData, email: evt.target.value });
     setIsValid({
       ...isValid,
       validEmail: emailRef.current.validity.valid,
@@ -33,12 +40,14 @@ function LoginForm() {
       emailMsg: emailRef.current.validationMessage,
     });
     setIsActive(
-      emailRef.current.validity.valid && passwordRef.current.validity.valid
+      emailRef.current.validity.valid &&
+        passwordRef.current.validity.valid &&
+        userNameRef.current.validity.valid
     );
   };
 
   const handlePasswordChange = (evt) => {
-    setSigninData({ ...signinData, password: evt.target.value });
+    setRegisterData({ ...registerData, password: evt.target.value });
     setIsValid({
       ...isValid,
       validPassword: passwordRef.current.validity.valid,
@@ -48,24 +57,43 @@ function LoginForm() {
       passwordMsg: passwordRef.current.validationMessage,
     });
     setIsActive(
-      emailRef.current.validity.valid && passwordRef.current.validity.valid
+      emailRef.current.validity.valid &&
+        passwordRef.current.validity.valid &&
+        userNameRef.current.validity.valid
+    );
+  };
+
+  const handleUserNameChange = (evt) => {
+    setRegisterData({ ...registerData, userName: evt.target.value });
+    setIsValid({
+      ...isValid,
+      validUserName: userNameRef.current.validity.valid,
+    });
+    setErrorMessage({
+      ...errorMessage,
+      passwordMsg: userNameRef.current.validationMessage,
+    });
+    setIsActive(
+      emailRef.current.validity.valid &&
+        passwordRef.current.validity.valid &&
+        userNameRef.current.validity.valid
     );
   };
 
   async function handleSubimit(evt) {
     evt.preventDefault();
-    console.log('login');
+    console.log('registro');
   }
 
-  function openRegisterPopup() {
-    handleOpenPopup(registerPopup);
+  function openLoginPopup() {
+    handleOpenPopup(loginPopup);
   }
 
-  const registerPopup = {
-    title: 'Inscrever-se',
+  const loginPopup = {
+    title: 'Entrar',
     children: (
       // <Form buttonText={'Entrar'} linkText={'Inscreva-se'}></Form>
-      <SignupForm></SignupForm>
+      <LoginForm></LoginForm>
     ),
   };
 
@@ -78,7 +106,7 @@ function LoginForm() {
             className='form__input'
             type='email'
             placeholder='Insira e-mail'
-            value={signinData.email}
+            value={registerData.email}
             onChange={handleEmailChange}
             ref={emailRef}
             required
@@ -98,7 +126,7 @@ function LoginForm() {
             type='password'
             minLength='8'
             placeholder='Insira a senha'
-            value={signinData.password}
+            value={registerData.password}
             onChange={handlePasswordChange}
             ref={passwordRef}
             required
@@ -111,6 +139,26 @@ function LoginForm() {
             {errorMessage.passwordMsg}
           </span>
         </label>
+        <label className='form__field'>
+          Nome de usuário
+          <input
+            className='form__input'
+            type='text'
+            minLength='2'
+            placeholder='Insira seu nome de usuário'
+            value={registerData.userName}
+            onChange={handleUserNameChange}
+            ref={userNameRef}
+            required
+          />
+          <span
+            className={`form__error ${
+              isValid.validUserName ? `` : `form__error--visible`
+            }`}
+          >
+            {errorMessage.userNameMsg}
+          </span>
+        </label>
       </fieldset>
       <button
         type='submit'
@@ -119,17 +167,14 @@ function LoginForm() {
           isActive ? `` : `form__submit-button--inactive`
         }`}
       >
-        {`Entrar`}
+        {`Inscrever-se`}
       </button>
       <p className='form__text'>
         ou{' '}
-        <a
-          onClick={openRegisterPopup}
-          className='form__text--link'
-        >{`Inscreva-se`}</a>
+        <a onClick={openLoginPopup} className='form__text--link'>{`Entre`}</a>
       </p>
     </form>
   );
 }
 
-export default LoginForm;
+export default SignupForm;

@@ -6,8 +6,6 @@ import NewsNotFound from '../NewsNotFound/NewsNotFound';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import About from './components/About/About';
 import PopupWithForm from './components/PopupWithForm/PopupWithForm';
-import Form from './components/PopupWithForm/components/Form/Form';
-import LoginForm from './components/PopupWithForm/components/Form/components/LoginForm/LoginForm';
 
 import { PopupContext } from '../../contexts/PopupContext';
 

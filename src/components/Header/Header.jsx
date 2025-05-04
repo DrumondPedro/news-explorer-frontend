@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
-import Form from '../Main/components/PopupWithForm/components/Form/Form';
+// import Form from '../Main/components/PopupWithForm/components/Form/Form';
+import LoginForm from '../Main/components/PopupWithForm/components/Form/components/LoginForm/LoginForm';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
@@ -52,16 +53,15 @@ function Header({ children }) {
     return gridIcon;
   }
 
-  function openTestPopup() {
-    handleOpenPopup(PopupTest);
+  function openLoginPopup() {
+    handleOpenPopup(loginPopup);
   }
 
-  const PopupTest = {
+  const loginPopup = {
     title: 'Entrar',
     children: (
-      <Form buttonText={'Entrar'} linkText={'Inscreva-se'}>
-        {/* <LoginForm></LoginForm> */}
-      </Form>
+      // <Form buttonText={'Entrar'} linkText={'Inscreva-se'}></Form>
+      <LoginForm></LoginForm>
     ),
   };
 
@@ -84,7 +84,7 @@ function Header({ children }) {
       <button
         className={`header__button 
           ${isLoggedIn ? '' : 'header__button--not-loged'}`}
-        onClick={openTestPopup}
+        onClick={openLoginPopup}
       >
         <p className={`header__button-text`}>
           {isLoggedIn ? `${currentUser.name}` : 'Entrar'}

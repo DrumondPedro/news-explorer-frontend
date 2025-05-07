@@ -6,6 +6,7 @@ import NewsNotFound from '../NewsNotFound/NewsNotFound';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import About from './components/About/About';
 import PopupWithForm from './components/PopupWithForm/PopupWithForm';
+import SuccessfulPopup from './components/SuccessfulPopup/SuccessfulPopup';
 
 import { PopupContext } from '../../contexts/PopupContext';
 
@@ -20,9 +21,14 @@ function Main() {
       {/* <Preloader /> */}
       {newsData ? <NewsCardList newsData={newsData} /> : <NewsNotFound />}
       <About />
-      {popup && (
-        <PopupWithForm title={`${popup.title}`}>{popup.children}</PopupWithForm>
-      )}
+      {popup &&
+        (popup.children ? (
+          <PopupWithForm title={`${popup.title}`}>
+            {popup.children}
+          </PopupWithForm>
+        ) : (
+          <SuccessfulPopup title={`${popup.title}`} />
+        ))}
     </main>
   );
 }

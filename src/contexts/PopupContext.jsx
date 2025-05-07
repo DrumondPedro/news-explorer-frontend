@@ -32,6 +32,10 @@ export function PopupProvider({ children }) {
     ),
   };
 
+  const successfulPopup = {
+    title: 'Cadastro concluído com sucesso!',
+  };
+
   return (
     <PopupContext.Provider
       value={{
@@ -40,6 +44,7 @@ export function PopupProvider({ children }) {
         handleClosePopup,
         registerPopup,
         loginPopup,
+        successfulPopup,
       }}
     >
       {children}

@@ -3,7 +3,8 @@ import { useContext, useRef, useState } from 'react';
 import { PopupContext } from '../../../../../../../../contexts/PopupContext';
 
 function SignupForm() {
-  const { handleOpenPopup, loginPopup } = useContext(PopupContext);
+  const { handleOpenPopup, loginPopup, successfulPopup } =
+    useContext(PopupContext);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -78,13 +79,18 @@ function SignupForm() {
     );
   };
 
+  function openLoginPopup() {
+    handleOpenPopup(loginPopup);
+  }
+
+  function openSuccessfulPopup() {
+    handleOpenPopup(successfulPopup);
+  }
+
   async function handleSubimit(evt) {
     evt.preventDefault();
     console.log('registro');
-  }
-
-  function openLoginPopup() {
-    handleOpenPopup(loginPopup);
+    openSuccessfulPopup();
   }
 
   return (

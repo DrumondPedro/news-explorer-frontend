@@ -12,8 +12,27 @@ function SuccessfulPopup({ title }) {
     handleOpenPopup(loginPopup);
   }
 
+  function handlesClickAway(evt) {
+    if (evt.target.className === 'successful-popup') {
+      handleClosePopup();
+    }
+  }
+
+  function handleEscClose(evt) {
+    if (evt.key === 'Escape') {
+      handleClosePopup();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscClose);
+    return () => {
+      document.removeEventListener('keydown', handleEscClose);
+    };
+  }, []);
+
   return (
-    <div className={`successful-popup`}>
+    <div className={`successful-popup`} onClick={handlesClickAway}>
       <div className={`successful-popup__content`}>
         <button
           className={`successful-popup__close-button`}

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { PopupContext } from '../../../../contexts/PopupContext';
 
@@ -7,8 +7,27 @@ import closeIcon from '../../../../assets/images/PopupWithForm/popup_close_Icon.
 function PopupWithForm({ children, title }) {
   const { handleClosePopup } = useContext(PopupContext);
 
+  function handlesClickAway(evt) {
+    if (evt.target.className === 'popup-with-form') {
+      handleClosePopup();
+    }
+  }
+
+  function handleEscClose(evt) {
+    if (evt.key === 'Escape') {
+      handleClosePopup();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscClose);
+    return () => {
+      document.removeEventListener('keydown', handleEscClose);
+    };
+  }, []);
+
   return (
-    <div className={`popup-with-form`}>
+    <div className={`popup-with-form`} onClick={handlesClickAway}>
       <div className={`popup-with-form__content`}>
         <button
           className={`popup-with-form__close-button`}

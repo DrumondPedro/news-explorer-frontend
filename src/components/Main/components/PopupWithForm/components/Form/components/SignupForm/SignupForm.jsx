@@ -89,7 +89,6 @@ function SignupForm() {
 
   async function handleSubimit(evt) {
     evt.preventDefault();
-    console.log('registro');
     openSuccessfulPopup();
   }
 

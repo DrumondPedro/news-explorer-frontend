@@ -8,7 +8,6 @@ import trashIcon from '../../../../assets/images/SaveButton/trash_icon.svg';
 
 function SaveButton() {
   const { isSavedNewsPage } = useContext(LocationContext);
-  // console.log(isSavedNewsPage); problema
 
   const [buttonImage, setButtonImage] = useState(savedIconInactive);
   const [isSaved, setIsSaved] = useState(false);
@@ -46,8 +45,6 @@ function SaveButton() {
     handleButtonImageSelection();
   }, [isSaved, isSavedNewsPage]);
 
-  // isSavedNewsPage esta no useEffect pq ele vem primeiro como false
-
   return (
     <>
       <button
@@ -65,7 +62,7 @@ function SaveButton() {
       {isHover && (
         <div className='save-button__poup'>
           <p className='save-button__poup-text'>
-            {isSavedNewsPage ? 'Remover dos salvos' : 'Entre para salvar!'}{' '}
+            {isSavedNewsPage ? 'Remover dos salvos' : 'Entre para salvar!'}
           </p>
         </div>
       )}

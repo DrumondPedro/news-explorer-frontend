@@ -18,18 +18,12 @@ export function PopupProvider({ children }) {
 
   const registerPopup = {
     title: 'Inscrever-se',
-    children: (
-      // <Form buttonText={'Entrar'} linkText={'Inscreva-se'}></Form>
-      <SignupForm></SignupForm>
-    ),
+    children: <SignupForm></SignupForm>,
   };
 
   const loginPopup = {
     title: 'Entrar',
-    children: (
-      // <Form buttonText={'Entrar'} linkText={'Inscreva-se'}></Form>
-      <LoginForm></LoginForm>
-    ),
+    children: <LoginForm></LoginForm>,
   };
 
   const successfulPopup = {

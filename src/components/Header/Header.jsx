@@ -91,7 +91,6 @@ function Header({ children }) {
 
   function handleEscClose(evt) {
     if (evt.key === 'Escape') {
-      console.log('evt');
       setIsMenuOpen(false);
     }
   }

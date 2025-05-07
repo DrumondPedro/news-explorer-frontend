@@ -52,7 +52,6 @@ function LoginForm() {
 
   async function handleSubimit(evt) {
     evt.preventDefault();
-    console.log('login');
   }
 
   function openRegisterPopup() {

@@ -30,16 +30,16 @@ function NewsCard({ news }) {
     >
       {isSavedNewsPage && !isHover && (
         <div className='news-card__topic-popup'>
-          <p className='news-card__topic-popup-text'>{currentNews.topic}</p>
+          <p className='news-card__topic-popup-text'>{currentNews.source.id}</p>
         </div>
       )}
       <SaveButton />
-      <img className='news-card__image' src={currentNews.image} alt='' />
+      <img className='news-card__image' src={currentNews.urlToImage} alt='' />
       <div className='news-card__content'>
-        <p className='news-card__date'>{currentNews.date}</p>
+        <p className='news-card__date'>{currentNews.publishedAt}</p>
         <h3 className='news-card__title'>{currentNews.title}</h3>
-        <p className='news-card__text'>{currentNews.text}</p>
-        <p className='news-card__font'>{currentNews.font}</p>
+        <p className='news-card__text'>{currentNews.description}</p>
+        <p className='news-card__font'>{currentNews.source.name}</p>
       </div>
     </li>
   );

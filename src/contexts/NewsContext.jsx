@@ -7,7 +7,15 @@ export const NewsContext = createContext();
 export function NewsProvider({ children }) {
   const [newsData, setNewsData] = useState([]);
 
+  const [isSent, setIsSent] = useState(false);
+  const [isWaitingReply, setIsWaitingReply] = useState(false);
+  const [isNewsError, setIsNewsError] = useState(false);
+
   async function handleNewsResearch(keywords) {
+    setIsSent(true);
+    setIsWaitingReply(true);
+    setIsNewsError(false);
+
     const today = new Date();
     const lastWeek = new Date(today - 604800000);
     const todayISOS = today.toISOString().substring(0, 10);
@@ -22,7 +30,10 @@ export function NewsProvider({ children }) {
       setNewsData(data.articles);
     } catch (error) {
       console.error('GET - /newsapi -', error);
+      setIsNewsError(true);
       setNewsData([]);
+    } finally {
+      setIsWaitingReply(false);
     }
   }
 
@@ -30,6 +41,10 @@ export function NewsProvider({ children }) {
     <NewsContext.Provider
       value={{
         newsData,
+        isSent,
+        isWaitingReply,
+        isNewsError,
+        setNewsData,
         handleNewsResearch,
       }}
     >

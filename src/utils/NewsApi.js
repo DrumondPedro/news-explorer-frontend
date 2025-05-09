@@ -1,8 +1,9 @@
-const { VITE_BASE_URL, VITE_ENV, API_KEY } = import.meta.env;
+const { VITE_BASE_URL, VITE_ENV, VITE_API_KEY } = import.meta.env;
 
 class NewsApi {
-  constructor({ baseURL }) {
+  constructor({ baseURL, authorizationKey }) {
     this._baseURL = baseURL;
+    this._authorizationKey = authorizationKey;
   }
 
   async getNews({ keywords, lastWeek, today }) {
@@ -12,7 +13,7 @@ class NewsApi {
         {
           method: 'GET',
           headers: {
-            Authorization: `${API_KEY}`,
+            Authorization: `${this._authorizationKey}`,
           },
         }
       );
@@ -35,4 +36,5 @@ export const newsClient = new NewsApi({
       ? VITE_BASE_URL
       : 'https://newsapi.org/v2/everything?'
   }`,
+  authorizationKey: VITE_API_KEY,
 });

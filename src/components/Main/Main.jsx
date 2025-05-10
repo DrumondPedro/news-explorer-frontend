@@ -22,7 +22,7 @@ function Main() {
         (isWaitingReply ? (
           <Preloader />
         ) : newsData.length ? (
-          <NewsCardList newsData={newsData} />
+          <NewsCardList />
         ) : (
           <NewsNotFound />
         ))}

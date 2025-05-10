@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 
+import { LoginContext } from '../../../../contexts/LoginContext';
 import { LocationContext } from '../../../../contexts/LocationContext';
 
 import savedIconInactive from '../../../../assets/images/SaveButton/saved_icon.svg';
@@ -8,6 +9,7 @@ import trashIcon from '../../../../assets/images/SaveButton/trash_icon.svg';
 
 function SaveButton() {
   const { isSavedNewsPage } = useContext(LocationContext);
+  const { isLoggedIn } = useContext(LoginContext);
 
   const [buttonImage, setButtonImage] = useState(savedIconInactive);
   const [isSaved, setIsSaved] = useState(false);
@@ -25,21 +27,41 @@ function SaveButton() {
     setButtonImage(savedIconInactive);
   }
 
-  const handleHoverImage = () => {
+  function handleHoverButton() {
+    console.log('hover');
     if (isHover === false) {
       setIsHover(true);
       return;
     }
     setIsHover(false);
-  };
+  }
 
-  const hendlerClickImage = () => {
-    if (isSaved === false) {
+  async function handleNewsSaving(params) {
+    try {
       setIsSaved(true);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleNewsDeletion(params) {
+    try {
+      setIsSaved(false);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function hendlerClickButton() {
+    if (!isLoggedIn) {
       return;
     }
-    setIsSaved(false);
-  };
+    if (isSaved === false) {
+      handleNewsSaving();
+      return;
+    }
+    handleNewsDeletion();
+  }
 
   useEffect(() => {
     handleButtonImageSelection();
@@ -49,9 +71,9 @@ function SaveButton() {
     <>
       <button
         className={`save-button`}
-        onClick={hendlerClickImage}
-        onMouseEnter={handleHoverImage}
-        onMouseLeave={handleHoverImage}
+        onClick={hendlerClickButton}
+        onMouseEnter={handleHoverButton}
+        onMouseLeave={handleHoverButton}
       >
         <img
           className={`save-button__image`}

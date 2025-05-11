@@ -53,7 +53,32 @@
   background: #2a65cc;
 }
 
+.search-form__error {
+  display: none;
+  position: absolute;
+  font-family: Inter;
+  color: #f00;
+  max-width: 350px;
+  text-align: center;
+  bottom: 2px;
+  left: 24px;
+  font-size: 14px;
+}
+
+.search-form__error--visible {
+  display: block;
+}
+
 @media screen and (max-width: 1024px) {
+  .search-form {
+    margin: 56px 0 64px;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .search-form {
+    margin: 52px 0;
+  }
 }
 
 @media screen and (max-width: 769px) {
@@ -72,6 +97,12 @@
   }
 }
 
+@media screen and (max-width: 690px) {
+  .search-form__error {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 426px) {
   .search-form {
     margin: 86px 0 0;
@@ -86,5 +117,10 @@
   .search-form__button {
     position: static;
     max-width: 100%;
+  }
+
+  .search-form__error {
+    bottom: 73px;
+    left: 17px;
   }
 }

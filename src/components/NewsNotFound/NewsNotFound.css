@@ -1,0 +1,62 @@
+.news-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 374px;
+  background-color: #f5f6f7;
+  flex-direction: column;
+}
+
+.news-not-found__image {
+  width: 83px;
+  height: 83px;
+}
+
+.news-not-found__title {
+  height: 30px;
+  margin-top: 32px;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
+}
+
+.news-not-found__text {
+  padding: 0 85px;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+}
+
+@media screen and (max-width: 768px) {
+  .news-not-found__text {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .news-not-found__image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .news-not-found__title {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .news-not-found__text {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .news-not-found__text {
+    padding: 0 20px;
+  }
+}

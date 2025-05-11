@@ -1,44 +1,46 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useWindowDimension from 'use-window-dimensions';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { LoginContext } from '../../contexts/LoginContext';
+import { LocationContext } from '../../contexts/LocationContext';
+import { LigthThemeContext } from '../../contexts/LigthThemeContext';
+import { PopupContext } from '../../contexts/PopupContext';
 
-import logoWite from '../../assets/images/Header/logo_wite.svg';
+import logoWhite from '../../assets/images/Header/logo_white.svg';
 import logoBlack from '../../assets/images/Header/logo_black.svg';
-import loguotWite from '../../assets/images/Header/logout_icon_wite.svg';
+import loguotWhite from '../../assets/images/Header/logout_icon_white.svg';
 import loguotBlack from '../../assets/images/Header/logout_icon_black.svg';
 import gridIcon from '../../assets/images/Header/menu_grid_icon.svg';
 import gridIconBlack from '../../assets/images/Header/menu_grid_icon_black.svg';
 import closeIcon from '../../assets/images/Header/close_icon.svg';
 
 function Header({ children }) {
-  const location = useLocation();
   const { width } = useWindowDimension();
 
   const { currentUser } = useContext(CurrentUserContext);
   const { isLoggedIn } = useContext(LoginContext);
+  const { isSavedNewsPage } = useContext(LocationContext);
+  const { addLigthTheme, removeLigthTheme } = useContext(LigthThemeContext);
+  const { handleOpenPopup, loginPopup } = useContext(PopupContext);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
 
-  const handleOpeningMenuMobile = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const getLogoImage = () => {
+  function handleOpeningMenuMobile() {
     if (isMenuOpen) {
-      return logoWite;
+      setIsMenuOpen(false);
+      if (isSavedNewsPage) {
+        addLigthTheme();
+      }
+      return;
     }
-    if (isSavedNewsPage) {
-      return logoBlack;
-    }
-    return logoWite;
-  };
+    setIsMenuOpen(true);
+    removeLigthTheme();
+  }
 
-  const getMenuButtonImage = () => {
+  function getMenuButtonImage() {
     if (isMenuOpen) {
       return closeIcon;
     }
@@ -46,7 +48,11 @@ function Header({ children }) {
       return gridIconBlack;
     }
     return gridIcon;
-  };
+  }
+
+  function openLoginPopup() {
+    handleOpenPopup(loginPopup);
+  }
 
   const handleHeaderButtonSelection = () => {
     if (width <= 580) {
@@ -66,57 +72,54 @@ function Header({ children }) {
     return (
       <button
         className={`header__button 
-    ${isSavedNewsPage ? 'header__button--light-theme' : ''} 
-    ${isLoggedIn ? '' : 'header__button--not-loged'}`}
+          ${isLoggedIn ? '' : 'header__button--not-loged'}`}
+        onClick={openLoginPopup}
       >
-        <p
-          className={`header__button-text ${
-            isSavedNewsPage ? 'header__button-text--light-theme' : ''
-          }`}
-        >
+        <p className={`header__button-text`}>
           {isLoggedIn ? `${currentUser.name}` : 'Entrar'}
         </p>
         {isLoggedIn && (
           <img
             className='header__button-image'
-            src={isSavedNewsPage ? loguotBlack : loguotWite}
-            alt=''
+            src={isSavedNewsPage ? loguotBlack : loguotWhite}
+            alt='Logo escrito "News Explorer"'
           />
         )}
       </button>
     );
   };
 
-  useEffect(() => {
-    if (width > 580) {
+  function handleEscClose(evt) {
+    if (evt.key === 'Escape') {
       setIsMenuOpen(false);
     }
+  }
 
+  useEffect(() => {
     setIsMenuOpen(false);
-    setIsSavedNewsPage(location.pathname === '/saved-news');
 
-    function handleEscClose(evt) {
-      if (evt.key === 'Escape') {
-        console.log('evt');
-        setIsMenuOpen(false);
-      }
+    if (isSavedNewsPage) {
+      addLigthTheme();
+    } else {
+      removeLigthTheme();
     }
 
     document.addEventListener('keydown', handleEscClose);
-
     return () => {
       document.removeEventListener('keydown', handleEscClose);
     };
-  }, [location.pathname, width]);
+  }, [isSavedNewsPage]);
 
   return (
     <>
-      <header
-        className={`header ${isSavedNewsPage ? 'header--light-theme' : ''}`}
-      >
+      <header className='header'>
         <div className='header__content'>
           <Link className='header__logo--link' to='/'>
-            <img className='header__logo' src={getLogoImage()} alt='' />
+            <img
+              className='header__logo'
+              src={isMenuOpen || !isSavedNewsPage ? logoWhite : logoBlack}
+              alt='Logo escrito "News Explorer"'
+            />
           </Link>
           {width > 580 && children}
           {handleHeaderButtonSelection()}
@@ -134,7 +137,11 @@ function Header({ children }) {
               {isLoggedIn ? `${currentUser.name}` : 'Entrar'}
             </p>
             {isLoggedIn && (
-              <img className='header__button-image' src={loguotWite} alt='' />
+              <img
+                className='header__button-image'
+                src={loguotWhite}
+                alt='Imagem de uma seta apontando para direita'
+              />
             )}
           </button>
         </div>

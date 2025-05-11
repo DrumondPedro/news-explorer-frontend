@@ -1,5 +1,6 @@
 .search {
   height: 576px;
+  max-height: fit-content;
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url(../../../../assets/images/Search/background_search.jpg);
   background-size: cover;
@@ -31,15 +32,24 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1024px) {
   .search__title {
     font-size: 48px;
     line-height: 52px;
     max-width: 595px;
+    padding: 132px 0 0;
   }
 
   .search__text {
     max-width: 606px;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .search__title {
+    font-size: 42px;
+    line-height: 46px;
+    padding: 120px 0 0;
   }
 }
 

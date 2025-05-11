@@ -1,0 +1,41 @@
+.preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 282px;
+  background-color: #f5f6f7;
+}
+
+.circle-preloader {
+  display: block;
+  width: 74px;
+  height: 74px;
+  animation: spin 1s infinite linear;
+}
+
+.preloader__text {
+  margin-top: 24px;
+  height: 24px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .circle-preloader {
+    width: 50px;
+    height: 50px;
+  }
+
+  .preloader__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

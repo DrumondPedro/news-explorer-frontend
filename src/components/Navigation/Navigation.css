@@ -5,7 +5,7 @@
 }
 
 .navigation__link {
-  color: #fff;
+  color: var(--nav-link-color);
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
@@ -14,17 +14,8 @@
   text-decoration: none;
 }
 
-.navigation__link--light-theme {
-  color: #1a1b22;
-}
-
 .navigation__link--active {
-  border-bottom: solid 3px #fff;
-  pointer-events: none;
-}
-
-.navigation__link--active--light-theme {
-  border-bottom: solid 3px #1a1b22;
+  border-bottom: solid 3px var(--nav-link-active-border-color);
   pointer-events: none;
 }
 
